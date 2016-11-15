@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebAppCurso.Models.Simulacion>
+
+@{
+    ViewBag.Title = "Simulaciones";
+}
+<div class="page-header">
+    <h2>Lista de Simulaciones</h2>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CedulaSolicitante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreSolicitante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatrimonioFamiliar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Herederos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Impuesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatrimonioHeredar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaSolicitante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreSolicitante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatrimonioFamiliar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Herederos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Impuesto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatrimonioHeredar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+        </tr>
+    }
+
+</table>

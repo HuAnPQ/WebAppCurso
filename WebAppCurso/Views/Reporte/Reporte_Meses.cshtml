@@ -1,0 +1,75 @@
+﻿@model WebAppCurso.Models.Simulacion
+@{
+    ViewBag.Title = "Reporte x Meses";
+}
+<div class="page-header">
+    <h2>Reporte de Simulaciones por Mes</h2>
+</div>
+@using (Html.BeginForm("Reportes_MesesPdf", "Reporte", FormMethod.Post))
+{
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Datos para filtrar:</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <form>
+                    <div class="form-group">
+                        @Html.Label("Seleccione un Mes", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Mes", new List<SelectListItem>
+{
+new SelectListItem{ Text = "Seleccione un Mes", Value = "Seleccione un Mes" , Selected = true },
+new SelectListItem { Text = "Enero", Value = "1"},
+new SelectListItem { Text = "Febrero", Value = "2" },
+new SelectListItem { Text = "Marzo", Value = "3" },
+new SelectListItem { Text = "Abril", Value = "4" },
+new SelectListItem { Text = "Mayo", Value = "5" },
+new SelectListItem { Text = "Junio", Value = "6" },
+new SelectListItem { Text = "Julio", Value = "7" },
+new SelectListItem { Text = "Agosto", Value = "8" },
+new SelectListItem { Text = "Septiembre", Value = "9" },
+new SelectListItem { Text = "Octubre", Value = "10" },
+new SelectListItem { Text = "Noviembre", Value = "11" },
+new SelectListItem { Text = "Diciembre", Value = "12" },
+
+}, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" value="Reporte_Meses" id="Reporte_Meses" name="Reporte_Meses" class="btn btn-info" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Reporte_MesesPdf" id="Reporte_MesesPdf" name="Reporte_MesesPdf" class="btn btn-info" />
+                        </div>
+                    </div>
+
+                    <div id="Tabla" class="table table-responsive">
+
+                    </div>
+
+
+                    
+
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Reporte_Meses.js"></script>
+}
+
+
+
+
+
+
+

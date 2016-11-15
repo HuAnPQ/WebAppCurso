@@ -1,0 +1,74 @@
+﻿@model WebAppCurso.Models.Simulacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Simulacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedulaSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedulaSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatrimonioFamiliar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatrimonioFamiliar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Herederos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Herederos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Impuesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Impuesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatrimonioHeredar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatrimonioHeredar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

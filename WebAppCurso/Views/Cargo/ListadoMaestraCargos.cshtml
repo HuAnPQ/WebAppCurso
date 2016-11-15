@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebAppCurso.Models.Cargo>
+
+@{
+    ViewBag.Title = "ListadoMaestraCargos";
+}
+
+<h2>Listado Maestra Cargos</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<hr />
+<table class="table table-responsive">
+    @Html.Partial("CabezeraTabla")
+    @*<thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>Editar</th>
+            <th>Mostrar</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>*@     
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Descripcion)*@
+                @Html.ActionLink(item.Descripcion, "UsuariosConDescripcionCargo", new { id = item.Descripcion})
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit" })
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-list-alt" })
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+
+</table>

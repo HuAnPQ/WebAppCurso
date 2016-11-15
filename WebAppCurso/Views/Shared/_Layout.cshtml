@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FacciRentas</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<img src="http://www.tutosytips.com/wp-content/uploads/2014/03/twitter-bootstrap-tutorial.jpg" alt="twitter-bootstrap" />
+                    @Html.ActionLink("BlueSky", "Index", "Home", new { area = "" }, new { @class = "navbar-brand"})*@
+                <a href='@Url.Action("Index", "Home")'>
+                    <img src='@Url.Content("~/Content/imagenes/bank-structure.png")' style="width: 50px; height: 50px;" alt="FacciRentas" />FacciRentas
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Gestion de Herederos", "Index", "Herederos")</li>
+                    @*<li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>*@
+                    <li>@Html.ActionLink("Simulaciones", "Index", "Simulacion")</li>
+                    <li>@Html.ActionLink("Reportes", "Index", "Reporte")</li>
+                    @*<li>@Html.ActionLink("Listado Usuario Cargos Descripcion", "UsuariosConDescripcionCargo", "Cargo")</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        @*<hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

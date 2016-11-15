@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d9d90f5c2594b19a0aa5f61c08e032c" Name="Diagram1">
+        <EntityTypeShape EntityType="Model_FacciRentas.DetalleSimulacion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_FacciRentas.Heredero" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_FacciRentas.Simulacion" Width="1.875" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Model_FacciRentas.FK_DetalleSimulacion_Simulacion" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,58 @@
+﻿@model WebAppCurso.Models.Habitacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Habitacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GruposHabitacion.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GruposHabitacion.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GruposHabitacion1.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GruposHabitacion1.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

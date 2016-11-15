@@ -1,0 +1,43 @@
+﻿@model Habitaciones.Web.Models.Reserva
+@using (Html.BeginForm("Reporte_RucPdf", "Reporte", FormMethod.Post))
+{
+    <form>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cliente.Ruc_Cliente, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="Ruc_Cliente" id="Ruc_Cliente" />
+                @Html.ValidationMessageFor(model => model.Cliente.Ruc_Cliente)
+                )
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Reporte_Ruc" id="Reporte_Ruc" name="Reporte_Ruc" class="btn btn-default" />
+            </div>
+        </div>
+
+        <div id="Tabla" class="table table-responsive">
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Reporte_RucPdf" id="Reporte_RucPdf" name="Reporte_RucPdf" class="btn btn-default" />
+            </div>
+        </div>
+
+    </form>
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/ScriptsEchos/Reporte_Ruc.js"></script>
+}
+
+

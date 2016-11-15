@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebAppCurso.Models.Simulacion>
+
+@{
+    ViewBag.Title = "Reportes_MesesPdf";
+}
+<div class="page-header">
+    <h2>Reporte de Simulaciones por Mes</h2>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatrimonioFamiliar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Impuesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Herederos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatrimonioHeredar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatrimonioFamiliar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Impuesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Herederos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatrimonioHeredar)
+        </td>        
+    </tr>
+}
+</table>

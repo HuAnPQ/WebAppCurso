@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebAppCurso.Models.Roles>
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Rol", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th class="">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuarios)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @foreach (var user in item.Usuarios)
+            {
+                <span class="badge">@user.ToString() </span>
+            }
+        </td>
+    </tr>
+}
+
+</table>

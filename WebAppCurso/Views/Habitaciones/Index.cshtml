@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebAppCurso.Models.Habitacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GruposHabitacion.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GruposHabitacion1.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                <img src="@Url.Content(item.Foto)" alt="Imagen Habitacion" class="thumbnail" style="width:75px; height:75px" />
+                @*@Html.DisplayFor(modelItem => item.Foto)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GruposHabitacion.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GruposHabitacion1.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

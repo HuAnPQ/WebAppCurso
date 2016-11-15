@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model_FacciRentas.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DetalleSimulacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Porcentaje" Type="float" Nullable="false" />
+          <Property Name="Impuesto" Type="float" Nullable="false" />
+          <Property Name="Patrimonio" Type="float" Nullable="false" />
+          <Property Name="Id_Simulacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Heredero">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="250" />
+          <Property Name="TipoHeredero" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Simulacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CedulaSolicitante" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="NombreSolicitante" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="PatrimonioFamiliar" Type="float" Nullable="false" />
+          <Property Name="Herederos" Type="int" Nullable="false" />
+          <Property Name="Impuesto" Type="float" Nullable="false" />
+          <Property Name="PatrimonioHeredar" Type="float" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+        </EntityType>
+        <Association Name="FK_DetalleSimulacion_Simulacion">
+          <End Role="Simulacion" Type="Self.Simulacion" Multiplicity="1" />
+          <End Role="DetalleSimulacion" Type="Self.DetalleSimulacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Simulacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetalleSimulacion">
+              <PropertyRef Name="Id_Simulacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Model_FacciRentasStoreContainer">
+          <EntitySet Name="DetalleSimulacion" EntityType="Self.DetalleSimulacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Heredero" EntityType="Self.Heredero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Simulacion" EntityType="Self.Simulacion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DetalleSimulacion_Simulacion" Association="Self.FK_DetalleSimulacion_Simulacion">
+            <End Role="Simulacion" EntitySet="Simulacion" />
+            <End Role="DetalleSimulacion" EntitySet="DetalleSimulacion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model_FacciRentas" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DetalleSimulacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Porcentaje" Type="Double" Nullable="false" />
+          <Property Name="Impuesto" Type="Double" Nullable="false" />
+          <Property Name="Patrimonio" Type="Double" Nullable="false" />
+          <Property Name="Id_Simulacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Simulacion" Relationship="Model_FacciRentas.FK_DetalleSimulacion_Simulacion" FromRole="DetalleSimulacion" ToRole="Simulacion" />
+        </EntityType>
+        <EntityType Name="Heredero">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TipoHeredero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Simulacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CedulaSolicitante" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreSolicitante" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatrimonioFamiliar" Type="Double" Nullable="false" />
+          <Property Name="Herederos" Type="Int32" Nullable="false" />
+          <Property Name="Impuesto" Type="Double" Nullable="false" />
+          <Property Name="PatrimonioHeredar" Type="Double" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="DetalleSimulacions" Relationship="Model_FacciRentas.FK_DetalleSimulacion_Simulacion" FromRole="Simulacion" ToRole="DetalleSimulacion" />
+        </EntityType>
+        <EntityContainer Name="Entities_FacciRentas" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DetalleSimulacions" EntityType="Self.DetalleSimulacion" />
+          <EntitySet Name="Herederoes" EntityType="Self.Heredero" />
+          <EntitySet Name="Simulacions" EntityType="Self.Simulacion" />
+          <AssociationSet Name="FK_DetalleSimulacion_Simulacion" Association="Model_FacciRentas.FK_DetalleSimulacion_Simulacion">
+            <End Role="Simulacion" EntitySet="Simulacions" />
+            <End Role="DetalleSimulacion" EntitySet="DetalleSimulacions" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_DetalleSimulacion_Simulacion">
+          <End Type="Model_FacciRentas.Simulacion" Role="Simulacion" Multiplicity="1" />
+          <End Type="Model_FacciRentas.DetalleSimulacion" Role="DetalleSimulacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Simulacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetalleSimulacion">
+              <PropertyRef Name="Id_Simulacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model_FacciRentasStoreContainer" CdmEntityContainer="Entities_FacciRentas">
+          <EntitySetMapping Name="DetalleSimulacions">
+            <EntityTypeMapping TypeName="Model_FacciRentas.DetalleSimulacion">
+              <MappingFragment StoreEntitySet="DetalleSimulacion">
+                <ScalarProperty Name="Id_Simulacion" ColumnName="Id_Simulacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="Patrimonio" ColumnName="Patrimonio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Herederoes">
+            <EntityTypeMapping TypeName="Model_FacciRentas.Heredero">
+              <MappingFragment StoreEntitySet="Heredero">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="TipoHeredero" ColumnName="TipoHeredero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Simulacions">
+            <EntityTypeMapping TypeName="Model_FacciRentas.Simulacion">
+              <MappingFragment StoreEntitySet="Simulacion">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="CedulaSolicitante" ColumnName="CedulaSolicitante" />
+                <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+                <ScalarProperty Name="PatrimonioFamiliar" ColumnName="PatrimonioFamiliar" />
+                <ScalarProperty Name="Herederos" ColumnName="Herederos" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="PatrimonioHeredar" ColumnName="PatrimonioHeredar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

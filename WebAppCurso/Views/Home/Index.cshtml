@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<div class="jumbotron">
+    <h1>FACCI-RENTAS</h1>
+    <p class="lead">Bienvenidos al portal web de FACCI - RENTAS</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Hugo Ponce</h2>
+        <p>
+            Facultad de Ciencias Informaticas.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            <img src="~/Content/imagenes/foto.jpg" class="thumbnail"  style="width:200px; height:300px"/>
+            @*@Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            <img src="~/Content/imagenes/logo_ULEAM.png" class="thumbnail" />
+            @*@Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+        </section>
+    </div>
+</div>

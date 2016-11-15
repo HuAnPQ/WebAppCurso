@@ -1,0 +1,80 @@
+﻿@model WebAppCurso.Models.Simulacion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Simulacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedulaSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedulaSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatrimonioFamiliar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatrimonioFamiliar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Herederos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Herederos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Impuesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Impuesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatrimonioHeredar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatrimonioHeredar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
